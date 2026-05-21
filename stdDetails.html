@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" href="stdDetails.css">
+</head>
+
+<body>
+<div class="head">
+    <h1>STUDENT DETAILS</h1>
+</div>
+    <form id="std" onsubmit="submitForm(event)">
+        <div>
+            <label>Name:</label>
+            <input type="text" id="name" required>
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input type="number" id="phone" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div>
+            <label>Father Name:</label>
+            <input type="text" id="father" required>
+        </div>
+        <div>
+            <label>Mother Name:</label>
+            <input type="text" id="mother" required>
+        </div>
+        <div>
+            <label>Course:</label>
+            <select id="course">
+                <option>MCA</option>
+                <option>BCA</option>
+                <option>MBA</option>
+            </select>
+        </div>
+        <div>
+            <label>DOB:</label>
+            <input type="date" id="dob">
+        </div>
+        <div>
+            <label>Photo:</label>
+            <input type="file" id="photo">
+        </div>
+        <div>
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+        <div>
+            <label>Address:</label><br>
+            <textarea id="address"></textarea>
+        </div>
+         <div class="submit">
+            <button type="submit" style="width: 400px;">Submit</button>
+        </div>
+       
+
+    </form>
+    
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const father = document.getElementById("father").value;
+            const mother = document.getElementById("mother").value;
+            const course = document.getElementById("course").value;
+            const dob = document.getElementById("dob").value;
+            const address = document.getElementById("address").value;
+
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+            console.log({
+                name, phone, email, father, mother,
+                course, dob, gender, address
+            });
+
+
+            event.target.reset();
+        }
+    </script>
+
+</body>
+
+</html>
